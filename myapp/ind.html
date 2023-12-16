@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Interview Questions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="toc" onclick="myfunc()"></div>
+
+
+  <div class="loader" id="loader"></div>
+
+
+  <div id="content" class="vscode-style fadeIn">
+
+  </div>
+
+
+  <a href="#" id="backToTop" class="back-to-top">Back to Top</a>
+
+  <button id="toc-btn" class="toggle-button" onclick="myfunc2()">Toggle TOC</button>
+
+
+  <script src="my.js" type="module"></script>
+  <script>
+    function myfunc() {
+      document.getElementById('toc').style.display = 'none';
+    }
+
+    function myfunc2() {
+  const toc = document.getElementById('toc');
+  toc.style.display = toc.style.display === 'block' ? 'none' : 'block';
+}
+
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', function () {
+      const backToTopBtn = document.getElementById('backToTop');
+      const tocBtn = document.getElementById('toc-btn');
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > lastScrollTop) {
+
+        backToTopBtn.style.display = 'none';
+        tocBtn.style.display = 'none';
+      } else {
+
+        backToTopBtn.style.display = 'block';
+        tocBtn.style.display = 'block';
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+
+  </script>
+</body>
+
+</html>
